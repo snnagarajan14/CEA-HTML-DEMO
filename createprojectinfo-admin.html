@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 2 meta tags *must* come first in the head -->
+    <title>CEA - Dashboard</title>
+
+    <!-- IMPORTANT!
+            In the two tags below, update path to standard-2.0.0-beta.4
+            to match the location of your Standard files
+        -->
+    <link href="css/em-standard-2.0.0-beta.4.min.css" media="all" rel="stylesheet" />    
+    <link href="css/style-customized.css" media="all" rel="stylesheet" />
+    <script type="text/javascript" src="js/vendor/masonry.pkgd.min.js"></script><!-- Masonry layout library  -->
+    <script type="module" src="js/vendor/inclusive-dates/inclusive-dates.js"></script>
+    <!-- Date and date range picker  -->
+    <style>
+        
+   .red{
+    margin: 0;
+    width: 14px;
+    height: 14px;
+    background-color:blue;
+    border-radius: 9999px;
+    color: white;
+}
+.buttonsgroup{
+  display:flex;
+justify-content: flex-end;
+gap:0.25rem;
+}
+.headertitle{
+  display:flex;
+  justify-content: space-between;
+  gap:2rem;
+}
+/* .left {
+      display: flex;
+      max-width: 70%;
+      justify-content: space-between;
+    } */
+    .user-profile{
+    position: relative;
+ }
+ .user-profile__dropdown{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border-radius: 5px;
+    top: 46px;
+    left: 10px;
+    border: 1px solid #ebebeb;
+    background: white;
+
+ }
+ .hidden{
+    display: none;
+ }
+    </style>
+</head>
+
+<body>
+  <header
+  class="em-c-header em-c-header--condensed em-c-header--blue "
+  role="banner"
+>
+  <div class="em-l-container em-c-header__inner">
+    <a class="skip-to-content" href="#main">Skip to main content</a>
+    <a class="skip-to-footer" href="#footer">Skip to footer</a>
+    <div class="em-c-header__body">
+      <div class="em-c-header__title-container ">
+        <h2 class="em-c-header__title">
+          <a href="#" rel="home" class="em-c-header__title-link">CEA</a>
+        </h2>
+      </div>
+      <button
+        class="em-c-btn em-c-btn--inverted em-c-btn--small    em-c-header__nav-btn em-js-nav-trigger"
+        aria-haspopup="true"
+        aria-controls="horizontalMenu"
+      >
+        <div class="em-c-btn__inner">
+          <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+          <svg class="em-c-icon em-c-icon--small em-c-btn__icon em-js-btn-icon">
+            <use
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xlink:href="images/16/em-icons.svg#hamburger"
+            ></use>
+          </svg>
+          <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+          <svg
+            class="em-c-icon em-c-icon--small em-c-btn__icon em-u-is-hidden em-js-btn-swap-icon"
+          >
+            <use
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xlink:href="images/16/em-icons.svg#x-filled"
+            ></use>
+          </svg>
+          <span class="em-c-btn__text em-js-btn-label">Menu</span>
+        </div>
+      </button>
+      <div class="em-c-header__nav-container em-js-nav-panel">
+        <form role="search" class="em-c-search-form em-js-header-search  ">
+          <div class="em-c-search__body">
+            <input
+              id="search"
+              type="search"
+              class="em-c-search__input"
+              placeholder="Search"
+              value=""
+            />
+            <button class="em-c-btn em-c-btn--primary     " aria-label="Search">
+              <div class="em-c-btn__inner">
+                <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+                <svg class="em-c-icon em-c-icon--small em-c-btn__icon">
+                  <use
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="images/16/em-icons.svg#search"
+                  ></use>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </form>
+        <nav id="nav" class="em-c-primary-nav" aria-label="Main navigation">
+          <ul class="em-c-primary-nav__list" role="menubar" id="horizontalMenu">
+            <li class="em-c-primary-nav__item " role="menuitem">
+              <a
+                class="em-c-primary-nav__link  em-is-current "
+                href="./Dashboard-Admin.html"
+                aria-expanded="false"
+                aria-current="false"
+                aria-label="Home"
+              >
+                Dashboard
+              </a>
+            </li>
+            <li class="em-c-primary-nav__item " role="menuitem">
+              <a
+                class="em-c-primary-nav__link  em-is-current "
+                href="guidewithguidline-Admin.html"
+                aria-expanded="false"
+                aria-current="false"
+                aria-label="Guide"
+              >
+                Guide
+              </a>
+            </li>
+           
+           
+            <li class="em-c-primary-nav__item " role="menuitem">
+              <a
+                class="em-c-primary-nav__link  em-is-current "
+                href="EstimatedSummary-Admin.html"
+                aria-expanded="false"
+                aria-current="false"
+                aria-label="Summary"
+              >
+                Summary
+              </a>
+            </li>
+            <li class="em-c-primary-nav__item " role="menuitem">
+              <a
+                class="em-c-primary-nav__link em-c-primary-nav__link--has-children em-js-nav-dropdown-trigger  "
+                href="#"
+                aria-expanded="false"
+                aria-current="false"
+                aria-label="Nav item"
+              >
+                Calc
+                <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+                <svg class="em-c-icon em-c-icon--small em-c-primary-nav__icon">
+                  <use
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="images/16/em-icons.svg#chevron-down-filled"
+                  ></use>
+                </svg>
+              </a>
+              <div
+                class="em-c-primary-nav__sublist em-js-nav-dropdown  "
+                role="menu"
+                aria-hidden="true"
+                aria-haspopup="true"
+              >
+                <ul>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./Inputcalc.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                      Input Calc
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./OutputCalc.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                      output Calc
+                    </a>
+                  </li>
+                
+                
+                </ul>
+              </div>
+            </li>
+            <li class="em-c-primary-nav__item " role="menuitem">
+              <a
+                class="em-c-primary-nav__link em-c-primary-nav__link--has-children em-js-nav-dropdown-trigger  "
+                href="#"
+                aria-expanded="false"
+                aria-current="false"
+                aria-label="Nav item"
+              >
+                Master pages
+                <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+                <svg class="em-c-icon em-c-icon--small em-c-primary-nav__icon">
+                  <use
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="images/16/em-icons.svg#chevron-down-filled"
+                  ></use>
+                </svg>
+              </a>
+              <div
+                class="em-c-primary-nav__sublist em-js-nav-dropdown  "
+                role="menu"
+                aria-hidden="true"
+                aria-haspopup="true"
+              >
+                <ul>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./LookupApplicationModule-Index.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                      LookupApplication Module
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./LookupModuleType-Index.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                      LookupModule Type
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./LookupTonnageDistribution-Index.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                    LookupTonnage Distribution
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./LookupArticServiceEquipmentMaterialMultiplier-Index.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                      Artic Service Equipment Material Multiplier
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./LookupEstimatedHRorMT-Index.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                      LookupEstimatedHRorMT 
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./LookupIndirectandFabEngineeringCost-Index.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                      LookupIndirectandFabEngineerCost 
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./LookupMaterialCostPerMT-Index.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                      LookupMaterialCostPerMT 
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./LookupMaterialCostSourEquipmentandPipingMultiplier-Index.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                    LookupMaterialCostSourEquipmentandPipingMultiplier 
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./LookupModulePBSCode-Index.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                    LookupModulePBSCode 
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./LookupModuleTransport-Index.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                    LookupModuleTransport 
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./LookupModuleTransportMultiplier-Index.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                    LookupModuleTransportMultiplier 
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./LookupPipingHoursMultiplierforSourService-Index .html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                    LookupPipingHoursMultiplierforSourService 
+                    </a>
+                  </li>
+                  <li class="em-c-primary-nav__subitem " role="menuitem">
+                    <a
+                      href="./createprojectinfo-admin.html"
+                      class="em-c-primary-nav__sublink"
+                      role="menuitem"
+                      aria-label="Subnav item"
+                    >
+                      LookupProject Information
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+         
+            
+
+            <li  class="em-c-primary-nav__item user-profile" role="menuitem">
+              <a
+                class="em-c-primary-nav__link   "
+                href="#"
+                aria-expanded="false"
+                aria-current="false"
+                aria-label="Notifications"
+              >
+              <svg class="em-c-icon em-c-icon--small em-c-solid-nav__icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/16/em-icons.svg#user-1"></use></svg> User Profile
+                <!-- <span class="em-c-badge">Logout</span> -->
+              </a>
+
+              <div class="user-profile__dropdown hidden">
+                  <ul>
+                    <li>
+                      <a href="./Dashboard.html">
+                        <button for="username">
+                            Admin
+                        </label>
+                      </a>
+                      
+                    </li>
+                    <li>
+                      <a href="./Dashboard.html">
+                        <button for="normaluser">
+                          Normal User
+                        </button>
+                      </a>
+                    </li>
+                  </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+  <div class="em-c-header-overlay"></div>
+  <div class="designs" style="margin-left: 122px;">
+    <button   name="design" toggle="new-design"> Design</button>
+    <button   name="design" toggle="exxon-standard">HTML</button>
+    <label style="color:red;text-align: center;">Under Development</label>
+</div>
+<div class="new-design ">
+  <img src="./images/CEA/createproject.png" alt="" class="new-des-img">
+</div>
+
+<div class="exxon-standard hidden">
+
+      <main role="main" id="main" style="zoom:90%;">
+        <div class="em-l-container" style="padding:0px">
+            
+            <nav aria-label="Breadcrumb">
+                <ol class="em-c-breadcrumbs ">
+                  <li class="em-c-breadcrumbs__item ">
+                    <a href="#" class="em-c-breadcrumbs__link">Project</a>
+                  </li>
+                  <li class="em-c-breadcrumbs__item ">
+                    <a href="#" class="em-c-breadcrumbs__link">Other Project</a>
+                  </li>
+                  <li class="em-c-breadcrumbs__item ">
+                    <a href="#" class="em-c-breadcrumbs__link">Create Project</a>
+                  </li>
+                  <li class="em-c-breadcrumbs__item ">
+                    <span class="em-c-breadcrumbs__link" aria-current="page">
+                      Project Information
+                    </span>
+                  </li>
+                </ol>
+              </nav>
+          <div class="em-c-page-header ">
+            <div class="headertitle">
+            <h3 class="em-c-page-header__title">Create Project -> Project Information</h3>
+            <div class="buttonsgroup">
+           
+              <a href="./Dashboard-Admin.html">
+                <button class="em-c-btn em-c-btn--secondary  em-c-btn--small   ">
+                 <span class="em-c-btn__text">Cancel</span>
+                </button>
+              </a>
+            <a href="#">
+              <button class="em-c-btn em-c-btn--primary  em-c-btn--small">
+            <span class="em-c-btn__text">Save & Next </span>
+            </button>
+            </a>
+
+
+</div>
+</div>
+          </div>
+        
+
+          <div></div>
+          <div class="em-l-grid em-l-grid--halves fpo-block height-large">
+            <div class="em-l-grid__item" style="border:1px solid grey">
+                <div class="fpo-block">
+                <h5 style="color:white;background-color:black;height:60px;margin: -8px;">Project Information</h5>
+                <br>
+                <div class="em-l--two-column">
+                    <div class="em-l__main">
+                      <div class="em-l-linelength-container">
+                        <form action="#" method="post" class="em-js-form">
+                          <fieldset class="em-c-fieldset " tabindex="0">
+                            <div class="em-c-field em-u-max-width-30  ">
+                              <label for="input" class="em-c-field__label">Project name
+                               
+                              </label>
+                              <div class="em-c-field__body">
+                                <input
+                                  type="text"
+                                  id="input"
+                                  class="em-c-input em-js-input"
+                                  placeholder="Enter"
+                                  aria-describedby="textinput-note-:roo:"
+                                  value=""
+                                />
+                              </div>
+                            
+                            </div>
+                            
+                          </fieldset>
+                        </form>
+                      </div>
+                    </div>
+
+                 </div>
+            <div style="width: 100%; display: table;">
+                 <div class="row" style="display: table-row">
+                 <div class="left"style="width: 400px; display: table-cell;">
+                  <div class="em-c-field em-c-field--date-picker em-u-max-width-15" id="date">
+                    <label for="date" class="em-c-field__label">Start Date</label>
+                    <div class="em-c-field__body">
+                      <inclusive-dates
+                        first-day-of-week="1"
+                        id="datepicker"
+                        placeholder="YYYY-MM-DD"
+                        locale="en-US"
+                        input-should-format="true"
+                      ></inclusive-dates>
+                    </div>
+                    
+                  </div>
+                  <br>
+                  <div class="em-c-field em-c-field--date-picker em-u-max-width-15" id="date">
+                    <label for="date" class="em-c-field__label">End Date</label>
+                    <div class="em-c-field__body">
+                      <inclusive-dates
+                        first-day-of-week="1"
+                        id="datepicker"
+                        placeholder="YYYY-MM-DD"
+                        locale="en-US"
+                        input-should-format="true"
+                      ></inclusive-dates>
+                    </div>
+                    
+                  </div>
+                  <br>
+                  <div class="em-c-field em-u-max-width-15  ">
+                    <label for="input" class="em-c-field__label">Horizon ID</label>
+                    <div class="em-c-field__body">
+                      <input
+                        type="text"
+                        id="input"
+                        name=""
+                        class="em-c-input em-js-input"
+                        placeholder="Enter"
+                        aria-describedby="textinput-note-:rq7:"
+                       
+                      />
+                    </div>
+                    
+                  </div>
+                  <br>
+                  <div class="em-c-field em-u-max-width-15  ">
+                    <label for="input" class="em-c-field__label">Planview Project ID</label>
+                    <div class="em-c-field__body">
+                      <input
+                        type="text"
+                        id="input"
+                        name=""
+                        class="em-c-input em-js-input"
+                        placeholder="Enter"
+                        aria-describedby="textinput-note-:rq7:"
+                      
+                      />
+                    </div>
+                    
+                  </div>
+                  <br>
+                  <div class="em-c-field em-u-max-width-15  ">
+                    <label for="input" class="em-c-field__label">Cost Estimate ID</label>
+                    <div class="em-c-field__body">
+                      <input
+                        type="text"
+                        id="input"
+                        name=""
+                        class="em-c-input em-js-input"
+                        placeholder="Enter"
+                        aria-describedby="textinput-note-:rq7:"
+                        value="Enter"
+                      />
+                    </div>
+                    
+                  </div>
+                  <br>
+                  <div class="em-c-field em-u-max-width-15  ">
+                    <label for="input" class="em-c-field__label">Case Name</label>
+                    <div class="em-c-field__body">
+                      <input
+                        type="text"
+                        id="input"
+                        name=""
+                        class="em-c-input em-js-input"
+                        placeholder="Enter"
+                        aria-describedby="textinput-note-:rq7:"
+                        value="Enter"
+                      />
+                    </div>
+                    
+                  </div>
+                  <br>
+                   
+                </div>
+
+                <div class="left" style="display: table-cell;">
+                   
+                    
+                     <br>
+                     <div class="em-c-field em-u-max-width-15  ">
+                       <label for="input" class="em-c-field__label">Cost Basis</label>
+                       <div class="em-c-field__body">
+                         <input
+                           type="text"
+                           id="input"
+                           name=""
+                           class="em-c-input em-js-input"
+                           placeholder="Enter"
+                           aria-describedby="textinput-note-:rq7:"
+                           value="Enter"
+                         />
+                       </div>
+                       
+                     </div>
+                     <br>
+                     <div class="em-c-field em-u-max-width-15  ">
+                       <label for="input" class="em-c-field__label">Currency of Estimate</label>
+                       <div class="em-c-field__body">
+                         <input
+                           type="text"
+                           id="input"
+                           name=""
+                           class="em-c-input em-js-input"
+                           placeholder="Enter"
+                           aria-describedby="textinput-note-:rq7:"
+                           value="Enter"
+                         />
+                       </div>
+                       
+                     </div>
+                     <br>
+                     <div class="em-c-field em-u-max-width-15  ">
+                       <label for="input" class="em-c-field__label">Exchange Rate (USD)</label>
+                       <div class="em-c-field__body">
+                         <input
+                           type="text"
+                           id="input"
+                           name=""
+                           class="em-c-input em-js-input"
+                           placeholder="Enter"
+                           aria-describedby="textinput-note-:rq7:"
+                           value="Enter"
+                         />
+                       </div>
+                       
+                     </div>
+                     <br>
+                     <div class="em-c-field em-u-max-width-15  ">
+                      <label for="input" class="em-c-field__label">Project Type</label>
+                     <div class="em-c-field__body">
+                      <select class="em-c-select" id="select" aria-labelledby="labelSelect" aria-describedby="descSelect" style="margin-top:15px;width: 100%;">
+                        <optgroup label="Select"><option value="option-1">Type 1</option>
+                            <option value="option-2">Type 2</option>
+                            <option value="option-2">Type 3</option>
+                          </optgroup></select></div>
+                        </div>
+                      <br>
+                      <div class="em-c-field em-u-max-width-15 ">
+                        <div
+  class="em-c-field  "
+  role="radiogroup"
+  aria-labelledby="radioLabel"
+  aria-describedby="radioDesc"
+  tabindex="0"
+>
+  <h4 class="em-c-field__label" id="radioLabel">Artic Service</h4>
+  <div class="em-c-field__body">
+    <ul class="em-c-option-list">
+      <li
+        class="em-c-option-list__item em-js-radio-trigger-parent em-is-active"
+      >
+        <label class="em-c-input-group em-c-radio--container" for="radio-:rum:">
+          <input
+            id="radio-:rum:"
+            type="radio"
+            class="em-c-input-group__control em-js-radio-trigger"
+            value="1"
+            checked=""
+          />
+          <span class="em-c-radio--checkmark"></span>
+          <span class="em-c-input-group__text">Yes</span>
+        </label>
+      </li>
+      <li class="em-c-option-list__item em-js-radio-trigger-parent  ">
+        <label class="em-c-input-group em-c-radio--container" for="radio-:run:">
+          <input
+            id="radio-:run:"
+            type="radio"
+            class="em-c-input-group__control em-js-radio-trigger"
+            value="2"
+          />
+          <span class="em-c-radio--checkmark"></span>
+          <span class="em-c-input-group__text">No</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+ 
+</div>
+                        </div>
+                      
+                      <!-- <div>
+                        <label for="input" class="em-c-field__label">Artic Service</label> 
+                      <label class="em-c-input-group em-c-radio--container" for="radio1">
+                        <input
+                          id="radio1"
+                          name="group"
+                          type="radio"
+                          class="em-c-input-group__control em-js-radio-trigger"
+                          value="1"
+                        />
+                        <span class="em-c-radio--checkmark"></span>
+                        <span class="em-c-input-group__text">Yes</span>
+                      </label>
+                      <label class="em-c-input-group em-c-radio--container" for="radio2">
+                        <input
+                          id="radio2"
+                          name="group"
+                          type="radio"
+                          class="em-c-input-group__control em-js-radio-trigger"
+                          value="1"
+                        />
+                        <span class="em-c-radio--checkmark"></span>
+                        <span class="em-c-input-group__text" style="margin-right:394px;">No</span>
+                      </label>
+                    </div> -->
+                    <br>
+                     <div class="em-c-field em-u-max-width-15  ">
+                       <label for="input" class="em-c-field__label">Unique System Generate ID</label>
+                       <div class="em-c-field__body">
+                         <input
+                           type="text"
+                           id="input"
+                           name=""
+                           class="em-c-input em-js-input"
+                           placeholder="Enter"
+                           aria-describedby="textinput-note-:rq7:"
+                           value="Enter"
+                         />
+                       </div>
+                       
+                     </div>
+
+                   </div>
+
+                    
+                  </div>
+                </div>
+                <div class="em-l--two-column">
+                    <div class="em-l__main">
+                      <div class="em-l-linelength-container">
+                        <form action="#" method="post" class="em-js-form">
+                          <fieldset class="em-c-fieldset " tabindex="0">
+                            <div class="em-c-field em-u-max-width-30  ">
+                              <label for="input" class="em-c-field__label">Project Location
+                               
+                              </label>
+                             
+                     
+                                <div class="em-c-field__body">
+                                  <select class="em-c-select" id="select" aria-labelledby="labelSelect" aria-describedby="descSelect" style="margin-top:15px;width: 133%;">
+                                    <optgroup label="Select"><option value="option-1">Australia</option>
+                                        <option value="option-2">Greece</option>
+                                        <option value="option-2">Cananda</option>
+                                      </optgroup></select></div>
+                           
+                               
+                            </div>
+                            
+                          </fieldset>
+                        </form>
+                      </div>
+                    </div>
+
+                 </div>
+            </div>
+            </div>
+            <!-- <div class="em-l-grid__item" style="border:1px solid grey">
+              <div class="fpo-block fpo-block--dark">2</div>
+            </div> -->
+
+            <div class="em-l-grid__item" style="border:1px solid grey">
+                <div class="fpo-block">
+                <h5 style="color:white;background-color:black;height:60px;margin: -8px;">Add Members with Project Access</h5>
+                <br>
+               
+                <!-- <form role="search" class="em-c-search-form em-js-header-search em-c-search-form--small">
+                    <div class="em-c-search__body" style="    width: 600px;">
+                        <input id="search" type="search" class="em-c-search__input" placeholder="Search"
+                            value="" />
+                        <button class="em-c-btn em-c-btn--primary" aria-label="Search">
+                            <div class="em-c-btn__inner">
+                                 <svg class="em-c-icon em-c-icon--small em-c-btn__icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        xlink:href="images/16/em-icons.svg#search"></use>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </form> -->
+                <div class="em-c-field ">
+                  
+                  <div class="em-c-field__body">
+                    <input
+                      id="typeahead"
+                      class="em-c-input em-js-typeahead"
+                      placeholder="Select Users"
+                      aria-labelledby="typeaheadLabel"
+                      aria-describedby="typeaheadNote"
+                      value=""
+                    />
+                    <div class="em-c-field__menu em-js-typeahead-menu">
+                      <ul class="em-c-typeahead-list">
+                        <li class="em-c-typeahead-list__item ">
+                          <img
+                            src="avatar-icon-png.png"
+                            
+                            alt="Person's avatar"
+                            class="em-c-avatar"
+                          />
+                          <span class="em-c-typeahead__suggestion">Sarah Edwards</span>
+                        </li>
+                        <li class="em-c-typeahead-list__item ">
+                          <img
+                            src="avatar-icon-png.png"
+                            alt="Person's avatar"
+                            class="em-c-avatar"
+                          />
+                          <span class="em-c-typeahead__suggestion">John Edwards</span>
+                        </li>
+                        <li class="em-c-typeahead-list__item ">
+                          <img
+                            src="avatar-icon-png.png"
+                            alt="Person's avatar"
+                            class="em-c-avatar"
+                          />
+                          <span class="em-c-typeahead__suggestion">Sarah Doe</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                 
+                </div>
+                <div style="width: 100%; display: table;">
+                    <div class="row" style="display: table-row">
+                    <div class="left"style="width: 400px; display: table-cell;">
+                   
+                     <br>
+                     <div class="em-c-field em-c-field--date-picker em-u-max-width-15" id="date">
+                     
+                     </div>
+                     <div class="em-c-field em-u-max-width-15  " style="display: inline;
+                     display: flex;
+                     gap: 3px;
+                     justify-content: center;
+                     align-items: center; margin-left: 37px;">
+                    <span>    
+                <!-- <svg class="em-c-icon em-c-icon--medium em-c-solid-nav__icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/16/em-icons.svg#user-1"></use>
+                </svg> -->
+              <img src="avatar.png" style="max-width: 85%;"/></span>
+                <span style="margin-right:38%">
+                        <label for="input" class="em-c-field__label">Unnikrishnan Pille</label>
+                    </span>   
+                        
+                      </div>
+                      <br>
+                      <div class="em-c-field em-u-max-width-15  " style="display: inline;
+                      display: flex;
+                      gap: 3px;
+                      justify-content: center;
+                      align-items: center;margin-left: 37px;">
+                <span>  <img src="avatar.png" style="max-width: 85%;"/></span>  
+                <!-- <svg class="em-c-icon em-c-icon--medium em-c-solid-nav__icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/16/em-icons.svg#user-1"></use>
+                </svg>  -->
+            </span>     
+            <span style="margin-right:42%">
+              <label for="input" class="em-c-field__label">Pankaj Deshbharta</label></span>
+                     
+                        
+                      </div>
+                  
+                      
+                   </div>
+   
+                   <div class="left" style="display: table-cell;">
+                      
+                       
+                        <br>
+                          <div class="em-c-field " style="margin-top: -15px;">
+     
+                            <div class="em-c-field__body" >
+                                <select class="em-c-select" id="select" aria-labelledby="labelSelect" aria-describedby="descSelect" style="margin-top:15px;width: 100%;">
+                                    <optgroup label="Select"><option value="option-1">Owner</option>
+                                        <option value="option-2">Contributor</option>
+                                        <option value="option-2">Reader</option>
+                                      </optgroup></select></div>
+                        </div>
+
+                         <br>
+                         <div class="em-c-field " style="    margin-top: -6px;" >
+                     
+                          <div class="em-c-field__body">
+                            <select class="em-c-select" id="select" aria-labelledby="labelSelect" aria-describedby="descSelect" style="margin-top:15px;width: 100%;">
+                              <optgroup label="Select"><option value="option-1">Owner</option>
+                                  <option value="option-2">Contributor</option>
+                                  <option value="option-2">Reader</option>
+                                </optgroup></select></div>
+                      </div>
+                         
+                        
+                       <br>
+                      
+   
+                      </div>
+   
+                       
+                     </div>
+                   </div>
+               
+            </div>
+            </div>
+          </div>
+           
+        </div>
+
+        </div>
+      </main>
+    </div>
+      <br>
+      <br>
+      <footer class="em-c-footer--dark em-c-footer--condensed   " role="contentinfo" id="footer">
+        <div class="em-l-container">
+          <nav class="em-c-footer__inner" aria-label="Footer navigation">
+            <ul class="em-c-multicolumn-nav  ">
+              <li class="em-c-multicolumn-nav__item " style="    width: 200%;
+              font-size: 17px;
+              font-family: 'EMprintSemibold';">
+                <a href="#" class="em-c-multicolumn-nav__link">Copyright for exxonmobil cost_estimation application</a>
+              </li>
+             
+            </ul>
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              width="110px"
+              height="30px"
+              viewBox="0 0 110 30"
+              enable-background="new 0 0 110 30"
+              xml:space="preserve"
+              class="em-c-logo"
+            >
+              <path
+                fill="currentColor"
+                d="M44.7,9.5h2.6v0.9c0.3-0.2,1.2-1.1,2.9-1.1c2,0,3.6,1.5,3.6,3.8v6H51v-5.2c0-1.3-0.6-2-1.8-2 c-1.1,0-1.8,0.7-1.8,2V19h-2.8V9.5z M73.9,14.2c0-1.3,1-2.4,2.4-2.4c1.4,0,2.4,1.1,2.4,2.4c0,1.3-1,2.4-2.4,2.4 C74.9,16.6,73.9,15.6,73.9,14.2z M71.2,14.2c0,2.7,2.2,5,5.1,5c2.9,0,5.1-2.2,5.1-5c0-2.7-2.2-5-5.1-5C73.4,9.3,71.2,11.5,71.2,14.2 z M35.7,14.2c0-1.3,1-2.4,2.4-2.4c1.4,0,2.4,1.1,2.4,2.4c0,1.3-1,2.4-2.4,2.4C36.7,16.6,35.7,15.6,35.7,14.2z M32.9,14.2 c0,2.7,2.2,5,5.1,5c2.9,0,5.1-2.2,5.1-5c0-2.7-2.2-5-5.1-5C35.1,9.3,32.9,11.5,32.9,14.2z M94.9,9.5h2.8v8.9V19h-2.8V9.5z M94.9,6 h2.8v2.4h-2.8V6z M99.9,6h2.8v12.4V19h-2.8V6z M90.4,14.2c0,1.3-1,2.4-2.4,2.4c-1.4,0-2.4-1-2.4-2.4c0-1.4,1-2.4,2.4-2.4 C89.4,11.9,90.4,12.9,90.4,14.2z M85.7,19l0-0.7c0.2,0.1,1.1,1,2.9,1c2.4,0,4.6-2.2,4.6-5c0-2.8-2.1-5-4.6-5c-1.9,0-2.8,0.9-2.9,1V6 H83v13H85.7z M19.8,19l2.9-3.8l1.8,1.9l-4.2,5.2h3.3l2.7-3.5l5,5.1h4l-7.3-7.3l5.7-7.2h-3.3l-4.2,5.4l-1.8-1.8l4.7-5.9h-3.3 l-3.2,4.1l-1.7-1.8H17l3.9,4L16.5,19H19.8z M7.3,6h8.6v2.4h-5.7v2.7h5.4v2.4h-5.4v3.1h5.7V19H7.3V6z M56,6h4.6l2.2,9.5h0.1L65.1,6 h4.5v13h-2.7V9.2h-0.1L64.3,19h-3.1l-2.4-9.8h-0.1V19H56V6z"
+              ></path>
+            </svg>
+          </nav>
+        </div>
+      </footer>
+
+    <!-- Add Standard JavaScript to bottom of body -->
+    <!-- IMPORTANT!
+            In the tag below, update path to standard-2.0.0-beta.4
+            to match the location of your Standard files
+        -->
+    <script type="text/javascript" src="js/em-standard-2.0.0-beta.4.min.js"></script>
+    <script>
+      document.querySelector('.user-profile').addEventListener('click',()=>{
+  document.querySelector(".user-profile__dropdown").classList.toggle('hidden')
+  })
+  </script>
+  <script type="text/javascript">
+    document.querySelectorAll('[name=design]').forEach(ele=>{
+        ele.addEventListener("click",function(e){
+            const exxonStandard  = document.querySelector(".exxon-standard")
+            const newDesign  = document.querySelector(".new-design")
+                exxonStandard.classList.add("hidden")
+                newDesign.classList.add("hidden")
+              const target =  e.target.getAttribute("toggle")
+           document.querySelector(`.${target}`).classList.remove("hidden")
+        })
+    })
+        </script>
+</body>
+
+</html>

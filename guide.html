@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+ 
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Guide Page</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+
+        .nav-pills .nav-link.active,
+
+        .nav-pills .show>.nav-link {
+
+            color: #fff;
+
+            background-color: #5c636a;
+
+        }
+
+ 
+
+        input[type="checkbox"]:checked {
+
+            background: green;
+
+            color: white;
+
+        }
+
+ 
+
+        #example2 {
+
+            box-sizing: content-box;
+
+            width: 370px;
+
+            height: 160px;
+
+            padding: 30px;
+
+            border: 1px solid lightgray;
+
+            background-color: #F8F8F8;
+
+        }
+
+ 
+
+        #example1 {
+
+            box-sizing: content-box;
+
+            width: 240px;
+
+            height: 160px;
+
+            padding: 30px;
+
+            border: 1px solid lightgray;
+
+            background-color: #F8F8F8;
+
+        }
+
+    </style>
+
+</head>
+
+ 
+
+<body>
+<h3 style="color:red;">Under develpoment</h3>
+    <div class="w3-main">
+
+        <div class="w3-row w3-padding-64">
+
+            <div class="w3-container">
+
+                <div class="container">
+
+                    <form><br><br>
+
+ 
+
+                        <div id="London" class="dashboard hidden">
+
+                            <div class="card">
+
+                                <div class="card-body">
+
+                                    <ul class="nav nav-pills">
+
+                                        <li class="nav-item">
+
+                                            <a class="nav-link active" data-toggle="pill" href="#cv">User Instructions</a>
+
+                                        </li>
+
+                                        <li class="nav-item">
+
+                                            <a class="nav-link" data-toggle="pill" href="#ep">Input and Output Definitions & Types</a>
+
+                                        </li>
+
+                                        <li class="nav-item">
+
+                                            <a class="nav-link" data-toggle="pill" href="#tl">INPUTS-User Input/Override Formatting</a>
+
+                                        </li>
+
+                                        <li class="nav-item">
+
+                                            <a class="nav-link" data-toggle="pill" href="#et">INPUTS-Default | Guidance Formatting</a>
+
+                                        </li>
+
+ 
+
+                                    </ul>
+
+                                    <br>
+
+                                    <br>
+
+                                    <h5>User Instructions</h5>
+
+                                    <div class="container border"><br>
+
+                                        <div class="active " id="cv">
+
+ 
+
+                                            <table class="table table-striped">
+
+                                                <thead>
+
+                                                    <tr style="background-color: black;color:white">
+
+                                                        <th>Step</th>
+
+                                                        <th>Description</th>
+
+ 
+
+                                                    </tr>
+
+                                                </thead>
+
+                                                <tbody>
+
+                                                    <tr>
+
+                                                        <td>1</td>
+
+                                                        <td>Before using the method ,refernce CEM-2-040-01 for
+
+                                                            methodology</td>
+
+ 
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td>2</td>
+
+                                                        <td>Refer to input and Output Definition & Type for tool usage
+
+                                                            guidance and User warnings for additional guidance</td>
+
+ 
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td>3</td>
+
+                                                        <td>Complete all necessary inputs</td>
+
+ 
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td>4</td>
+
+                                                        <td>Input cost basis information at chosen location</td>
+
+ 
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td>5</td>
+
+                                                        <td>Utilize "WeightCalculator" tab to obtain tonnage of topside
+
+                                                            modules</td>
+
+ 
+
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+
+                                        </div>
+
+                                    </div>
+
+ 
+
+                                    <br>
+
+ 
+
+                                    <h5>Input and Output Definitions & Types</h5>
+
+ 
+
+                                    <div class="container border"><br>
+
+                                        <h8>Inputs-Overview</h8>
+
+                                        <div class="container border"><br>
+
+                                            <div class="form-row">
+
+                                                <div class="col-md-6" style="background-color:#E6E6E3">
+
+                                                    <h10>The Inputs interface is consistent across the total design.All
+
+                                                        inputs are configured in a set of three values.From left to
+
+                                                        right
+
+                                                        ,the cells are</h10>
+
+                                                </div>
+
+                                                <div class="col-md-6">
+
+                                                    <h8>Defaults | Guidance Input | Oerride Error Message </h8>
+
+                                                    <br>
+
+                                                    Example
+
+                                                </div>
+
+                                                <div class="col-md-6" style="background-color:#E6E6E3">
+
+                                                    <br>
+
+                                                    1. Default Values/ Guidance
+
+                                                    <br>
+
+                                                    2. User Input/ Override
+
+                                                    <br>
+
+                                                    3. Error Messaging
+
+                                                </div>
+
+                                                <!--
+
+                                               
+
+                                                <div class="col-md-1">
+
+                                                    <br>
+
+                                                    <label>Required</label> *
+
+                                                </div>
+
+                                                <div class="col-md-1">
+
+                                                    <br>
+
+                                                    <input type="number" placeholder="Enter Value" />
+
+                                                </div>
+
+                                                <div class="col-md-1">
+
+                                                    <br>
+
+                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel"
+
+                                                        checked aria-label="...">
+
+                                                </div> -->
+
+                                                <div class="col-md-6">
+
+ 
+
+                                                    <div class="form-row">
+
+                                                        <div class="col-md-2">
+
+                                                            <br>
+
+                                                            <label>Required</label> *
+
+                                                        </div>
+
+                                                        <div class="col-md-3">
+
+                                                            <br>
+
+                                                            <input type="number" class="form-control" id="inputName5"
+
+                                                                placeholder="Enter Value" disabled
+
+                                                                style="background-color:#FFF9A6">
+
+ 
+
+                                                        </div>
+
+                                                        <div class="col-md-1">
+
+                                                            <br><i class="fa fa-check-circle" style='font-size:20px;color:green
+
+                                                            '></i>
+
+                                                        </div>
+
+                                                        <div class="col-md-2">
+
+                                                            <br>
+
+                                                            <label>Default Value</label>
+
+                                                        </div>
+
+                                                        <div class="col-md-3">
+
+                                                            <br>
+
+                                                            <input type="number" class="form-control" id="inputName5"
+
+                                                                placeholder="Enter Value" disabled
+
+                                                                style="background-color:#c4e3ed">
+
+ 
+
+                                                        </div>
+
+                                                        <div class="col-md-1">
+
+                                                            <br><i class="fa fa-flag" aria-hidden="true"
+
+                                                                style="color:orange"></i>
+
+ 
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-6" style="background-color:#E6E6E3">
+
+ 
+
+                                                </div>
+
+                                                <div class="col-md-6">
+
+ 
+
+                                                    <div class="form-row">
+
+                                                        <div class="col-md-2">
+
+                                                            <br>
+
+                                                            <label>Not Used </label>
+
+                                                        </div>
+
+                                                        <div class="col-md-3">
+
+                                                            <br>
+
+                                                            <input type="number" class="form-control" id="inputName5"
+
+                                                                placeholder="Enter Value" disabled
+
+                                                                style="background-color:#FFF9A6">
+
+ 
+
+                                                        </div>
+
+                                                        <div class=" col-md-1">
+
+                                                            <br>--
+
+                                                        </div>
+
+                                                        <div class="col-md-2">
+
+                                                            <br>
+
+                                                            <label>Required</label> *
+
+                                                        </div>
+
+                                                        <div class="col-md-3">
+
+                                                            <br>
+
+                                                            <input type="number" class="form-control" id="inputName5"
+
+                                                                placeholder="Enter Value" disabled
+
+                                                                style="background-color:#c4e3ed">
+
+ 
+
+                                                        </div>
+
+                                                        <div class="col-md-1">
+
+                                                            <br><i class="fa fa-check-circle" style='font-size:20px;color:green
+
+                                                            '></i>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+ 
+
+                                            </div>
+
+                                            <br>
+
+                                        </div>
+
+                                        <br>
+
+ 
+
+                                    </div>
+
+ 
+
+                                    <br>
+
+ 
+
+                                    <h5>INPUTS-User Input/Override Formatting</h5>
+
+ 
+
+                                    <div class="container border"><br>
+
+                                        <h8>Possible Default | Colors Guidance</h8>
+
+ 
+
+                                        <br>
+
+                                        <table>
+
+                                            <tr>
+
+                                                <td>
+
+                                                    <div id="example2">
+
+                                                        <div class="form-row">
+
+                                                            <div class="col-md-2">
+
+ 
+
+                                                                <label> * Required</label>
+
+                                                            </div>
+
+                                                            <div class="col-md-2">
+
+                                                                <br>
+
+                                                                <input type="number" class="form-control"
+
+                                                                    id="inputName5" disabled
+
+                                                                    style="background-color:#FFF9A6">
+
+                                                            </div>
+
+ 
+
+                                                            <div class="col-md-2">
+
+ 
+
+                                                                <label> * Optional</label>
+
+                                                            </div>
+
+                                                            <div class="col-md-2">
+
+                                                                <br>
+
+                                                                <input type="number" class="form-control"
+
+                                                                    id="inputName5" disabled
+
+                                                                    style="background-color:#FFF9A6">
+
+                                                            </div>
+
+ 
+
+                                                            <div class="col-md-2">
+
+ 
+
+                                                                <label> * NotUsed</label>
+
+                                                            </div>
+
+                                                            <div class="col-md-2">
+
+                                                                <br>
+
+                                                                <input type="number" class="form-control"
+
+                                                                    id="inputName5" disabled
+
+                                                                    style="background-color:#FFF9A6">
+
+                                                            </div>
+
+                                                            <div class="col-md-12">
+
+                                                                <br>
+
+                                                                <h12>This input impacts calculation but does not have a
+
+                                                                    provided default value</h12>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <div id="example1">
+
+                                                        <div class="form-row">
+
+                                                            <div class="col-md-3">
+
+ 
+
+                                                                <label> * Required</label>
+
+                                                            </div>
+
+                                                            <div class="col-md-3">
+
+                                                                <br>
+
+                                                                <input type="number" class="form-control"
+
+                                                                    id="inputName5" disabled
+
+                                                                    style="background-color:#c4e3ed">
+
+                                                            </div>
+
+ 
+
+                                                            <div class="col-md-3">
+
+ 
+
+                                                                <label> * Optional</label>
+
+                                                            </div>
+
+                                                            <div class="col-md-3">
+
+                                                                <br>
+
+                                                                <input type="number" class="form-control"
+
+                                                                    id="inputName5" disabled
+
+                                                                    style="background-color:#c4e3ed">
+
+                                                            </div>
+
+ 
+
+                                                            <div class="col-md-12">
+
+                                                                <br>
+
+                                                                <h12>This input impacts calculation but does not have a
+
+                                                                    provided default value</h12>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <div id="example1">
+
+                                                        <div class="form-row">
+
+                                                            <div class="col-md-3">
+
+ 
+
+                                                                <label> * Required</label>
+
+                                                            </div>
+
+                                                            <div class="col-md-3">
+
+                                                                <br>
+
+                                                                <input type="number" class="form-control"
+
+                                                                    id="inputName5" disabled
+
+                                                                    style="background-color:lightgray">
+
+                                                            </div>
+
+ 
+
+                                                            <div class="col-md-3">
+
+ 
+
+                                                                <label> * Optional</label>
+
+                                                            </div>
+
+                                                            <div class="col-md-3">
+
+                                                                <br>
+
+                                                                <input type="number" class="form-control"
+
+                                                                    id="inputName5" disabled
+
+                                                                    style="background-color:lightgray">
+
+                                                            </div>
+
+ 
+
+                                                            <div class="col-md-12">
+
+                                                                <br>
+
+                                                                <h12>This input does not impacts calculation
+
+                                                                    (identifying information,location names,IDs,etc.)
+
+                                                                </h12>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </td>
+
+ 
+
+                                            </tr>
+
+                                        </table>
+
+                                        <br>
+
+                                    </div>
+
+                                    <br>
+
+ 
+
+                                    <h5>INPUTS-Default | Guidance Formatting</h5>
+
+                                    <div class="container border"><br>
+
+ 
+
+                                        <table class="table table-striped">
+
+                                            <thead>
+
+                                                <tr style="background-color: black;color:white">
+
+                                                    <th colspan="7">For Defaults | Guidance ,the boxed formatting around
+
+                                                        the value defines if the value is dynamic or based on previous
+
+                                                        inputs</th>
+
+ 
+
+                                                </tr>
+
+                                            </thead>
+
+                                            <tbody>
+
+                                                <tr>
+
+                                                    <td colspan="2">
+
+ 
+
+                                                        <label style="color:blue;margin:3px;"> *</label>
+
+                                                        <label>Required</label>
+
+                                                        <i class="fa fa-angle-right" style='font-size: 25px; margin-left:
+
+                                                            8%;'></i>
+
+                                                    </td>
+
+ 
+
+                                                    <td clospan="2">Non Boxed Value</td>
+
+                                                    <td colspan="3">Hardcoded Default | Guidance</td>
+
+ 
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td colspan="2">
+
+                                                        <label style="color:blue;margin:3px;"> *</label>
+
+                                                        <label>Required</label>
+
+                                                        <i class="fa fa-angle-right" style='font-size: 25px; margin-left:
+
+                                                            8%;'></i>
+
+                                                    </td>
+
+                                                    <td clospan="2"> Boxed Value</td>
+
+                                                    <td colspan="3">Dynamic Default | Guidance.Value is based on
+
+                                                        previous inputs</td>
+
+ 
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+                                        <br>
+
+                                        <table class="table table-striped">
+
+                                            <thead>
+
+                                                <tr style="background-color: black;color:white">
+
+                                                    <th colspan="7">Below is the type of Defaults | Guidance and
+
+                                                        descriptions.</th>
+
+ 
+
+                                                </tr>
+
+                                            </thead>
+
+                                            <tbody>
+
+                                                <tr>
+
+                                                    <td colspan="2">
+
+ 
+
+                                                        <label style="color:blue;margin:3px;"> *</label>
+
+                                                        <label>Required</label>
+
+                                                        <i class="fa fa-angle-right" style='font-size: 25px; margin-left:
+
+                    8%;'></i>
+
+                                                    </td>
+
+ 
+
+                                                    <td clospan="5">Required --- This is a required input.Usershould
+
+                                                        enter a valid input</td>
+
+ 
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td colspan="2">
+
+ 
+
+                                                        <label style="color:blue;margin:3px;">o</label>
+
+                                                        <label>Optional</label>
+
+                                                        <i class="fa fa-angle-right" style='font-size: 25px; margin-left:
+
+                    8%;'></i>
+
+                                                    </td>
+
+ 
+
+                                                    <td clospan="5">Optional --- This is an optional input.User can
+
+                                                        leave blank.Mostly Used for ability to estimate multiple items.
+
+                                                    </td>
+
+ 
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td colspan="2">
+
+ 
+
+                                                        <label style="color:blue;margin:3px;">o</label>
+
+                                                        <label>Not Used</label>
+
+                                                        <i class="fa fa-angle-right" style='font-size: 25px; margin-left:
+
+                    8%;'></i>
+
+                                                    </td>
+
+ 
+
+                                                    <td clospan="5">Not Used --- This input is not used.Any user
+
+                                                        input/override will Not be used.
+
+                                                    </td>
+
+ 
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td colspan="2">
+
+ 
+
+                                                        <input type="text" placeholder="Default Val" disabled
+
+                                                            style="background-color:white; width: 90px;">
+
+ 
+
+                                                        <i class="fa fa-angle-right" style='font-size: 25px; margin-left:
+
+                    8%;'></i>
+
+                                                    </td>
+
+ 
+
+                                                    <td clospan="5">Any other value is a default value calculated in the
+
+                                                        tool and provided to the user.This default can be overridden.
+
+                                                    </td>
+
+ 
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+ 
+
+                                    </div>
+
+                                    <br>
+
+                                    <h5>INPUTS-Error Messaging </h5>
+
+                                    <div class="container border"><br>
+
+ 
+
+                                        <table class="table table-striped">
+
+ 
+
+                                            <tbody>
+
+                                                <tr>
+
+ 
+
+                                                    <td><i class="fa fa-check-circle" style='font-size:20px;color:green
+
+                                                            '></i></td>
+
+ 
+
+                                                    <td>No errors</td>
+
+ 
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td><i class='fa fa-exclamation-circle' style='font-size:20px;color:orange
+
+                                                            '></i></td>
+
+                                                    <td>Default is provided but no user input | Oerride.Tool
+
+                                                        utilises default value.</td>
+
+ 
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td><i class='fa fa-flag' style='font-size:20px;color:darkgoldenrod
+
+                                                            '></i></td>
+
+                                                    <td>Default is overridden by user with no user proved in-cell
+
+                                                        comment.</td>
+
+ 
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td><i class='fa fa-flag' style='font-size:20px;color:green
+
+                                                            '></i></td>
+
+                                                    <td>Default is overridden by user with no user provided in-cell
+
+                                                        comment.</td>
+
+ 
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td><i class="fa fa-times-circle" style='font-size:20px;color:red
+
+                                                            '></i>
+
+                                                    </td>
+
+                                                    <td>Error.Either missing required input or Error with input</td>
+
+ 
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td><label style="color:blue;font-size:20px">--</label></td>
+
+                                                    <td>Input is not used.</td>
+
+ 
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+ 
+
+                                    </div>
+
+ 
+
+                                    <br>
+
+ 
+
+                                    <h5>SUMMARY - Default & Override Formatting</h5>
+
+                                    <div class="container border"><br>
+
+                                        <div class="form-row">
+
+                                            <div class="col-md-3">
+
+                                                <input type="text" class="form-control" id="inputName5"
+
+                                                    placeholder="1,000" disabled
+
+                                                    style="background-color:white;width: 100px;"><br>
+
+                                            </div>
+
+                                            <div class="col-md-9">
+
+                                                <label>White background = no overrides accepted</label>
+
+                                            </div>
+
+ 
+
+                                            <div class="col-md-3">
+
+                                                <input type="text" class="form-control" id="inputName5"
+
+                                                    placeholder="$1,000,000" disabled
+
+                                                    style="background-color:#c4e3ed;width: 100px;"><br>
+
+                                            </div>
+
+                                            <div class="col-md-9">
+
+                                                <label>Blue color = override accepted .Black text indicates value= to
+
+                                                    default value.Dropdown value = to default value</label>
+
+                                            </div>
+
+ 
+
+                                            <div class="col-md-3">
+
+                                                <!-- <input type="textbox" placeholder=" disabled
+
+                                                    style="background-color:lightblue" /> -->
+
+                                                <input type="text" class="form-control" id="inputName5"
+
+                                                    placeholder="$2,000,000" disabled
+
+                                                    style="background-color:#c4e3ed;width: 100px;"><br>
+
+                                            </div>
+
+                                            <div class="col-md-9">
+
+                                                <label>Blue color= override accepted.Blue text indicates a user
+
+                                                    override.Dropdown value= to default value.</label><br>
+
+                                            </div>
+
+ 
+
+                                        </div>
+
+                                    </div>
+
+                                    <br>
+
+                                    <h5>User Warnings</h5>
+
+                                    <div class="container border"><br>
+
+ 
+
+                                        <table class="table table-striped">
+
+ 
+
+                                            <tbody>
+
+                                                <tr>
+
+ 
+
+                                                    <td><i class="fa fa-circle" style='font-size:15px;
+
+                                                            '></i></td>
+
+ 
+
+                                                    <td>Tools is based on limited historical data.Method to be updated
+
+                                                        as more actual data is incorporated.</td>
+
+ 
+
+                                                </tr>
+
+                                                <tr>
+
+ 
+
+                                                    <td><i class="fa fa-circle" style='font-size:15px;
+
+                                                            '></i></td>
+
+ 
+
+                                                    <td>Primary basis of tool is to generate a tool cost at
+
+                                                        Screening/Gate 2 accuracy levels.Additional details are
+
+                                                        estimated (i.e direct cost and workhours by)</td>
+
+ 
+
+                                                </tr>
+
+                                                <tr>
+
+ 
+
+                                                    <td><i class="fa fa-circle" style='font-size:15px;
+
+                                                            '></i></td>
+
+ 
+
+                                                    <td>Take note of inclusion | exclusion within the estimated figures
+
+                                                        as noted on the summary tab.</td>
+
+ 
+
+                                                </tr>
+
+                                                <tr>
+
+ 
+
+                                                    <td><i class="fa fa-circle" style='font-size:15px;
+
+                                                            '></i></td>
+
+ 
+
+                                                    <td>High pressure reserviors can have design impacts is accounted
+
+                                                        for this model-ex.Increased thickness and specification of
+
+                                                        piping.</td>
+
+ 
+
+                                                </tr>
+
+ 
+
+                                            </tbody>
+
+                                        </table>
+
+ 
+
+                                    </div>
+
+ 
+
+                                    <br>
+
+ 
+
+                                    <h5>Revisions</h5>
+
+                                    <div class="container border"><br>
+
+ 
+
+                                        <table class="table table-striped">
+
+                                            <thead>
+
+                                                <tr>
+
+                                                    <th colspan="2">Revision</th>
+
+                                                    <th colspan="5">Comments</th>
+
+                                                    <th colspan="1">Date</th>
+
+                                                    <th colspan="1">By</th>
+
+                                                </tr>
+
+                                            </thead>
+
+                                            <tbody>
+
+                                                <tr>
+
+ 
+
+                                                    <td colspan="2">0.0</td>
+
+ 
+
+                                                    <td colspan="5">Issued for Use.</td>
+
+                                                    <td colspan="1">1-June-18</td>
+
+                                                    <td colspan="1">To</td>
+
+                                                </tr>
+
+                                                <tr>
+
+ 
+
+                                                    <td colspan="2">0.1</td>
+
+ 
+
+                                                    <td colspan="5">User Interface upgrade.Topsides Weight
+
+                                                        Calculator,Accuracy Enhancements</td>
+
+                                                    <td colspan="1">26-Aug-19</td>
+
+                                                    <td colspan="1">GR</td>
+
+                                                </tr>
+
+                                                <tr>
+
+ 
+
+                                                    <td colspan="2">0.2</td>
+
+ 
+
+                                                    <td colspan="5">Removed indirect Labor Cost input,Added New
+
+                                                        Facilities Weight Calculator,Bug Fixes</td>
+
+                                                    <td colspan="1">17-Sep-19</td>
+
+                                                    <td colspan="1">GR</td>
+
+                                                </tr>
+
+                                                <tr>
+
+ 
+
+                                                    <td colspan="2">0.3</td>
+
+ 
+
+                                                    <td colspan="5">Weght Calculator Bug Fixes</td>
+
+                                                    <td colspan="1">28-Oct-19</td>
+
+                                                    <td colspan="1">GR</td>
+
+                                                </tr>
+
+ 
+
+                                                <tr>
+
+ 
+
+                                                    <td colspan="2">0.4</td>
+
+ 
+
+                                                    <td colspan="5">New weight Calculator incorporated.</td>
+
+                                                    <td colspan="1">17-June-20</td>
+
+                                                    <td colspan="1">JGA</td>
+
+                                                </tr>
+
+                                                <tr>
+
+ 
+
+                                                    <td colspan="2">0.5</td>
+
+ 
+
+                                                    <td colspan="5">Revised Topside Weight Model</td>
+
+                                                    <td colspan="1">4-Jan-21</td>
+
+                                                    <td colspan="1">DM</td>
+
+                                                </tr>
+
+                                                <tr>
+
+ 
+
+                                                    <td colspan="2">1.0</td>
+
+ 
+
+                                                    <td colspan="5">-2022 CEM Standardisation Revision</td>
+
+                                                    <td colspan="1">1-Jan-22</td>
+
+                                                    <td colspan="1">MMN</td>
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+ 
+
+                                    </div>
+
+ 
+
+                                    <br>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+ 
+
+</body>
+
+ 
+
+</html>
+
+ 
+

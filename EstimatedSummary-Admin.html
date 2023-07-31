@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 2 meta tags *must* come first in the head -->
+    <title>CEA - Dashboard</title>
+
+    <!-- IMPORTANT!
+            In the two tags below, update path to standard-2.0.0-beta.4
+            to match the location of your Standard files
+        -->
+    <link href="css/em-standard-2.0.0-beta.4.min.css" media="all" rel="stylesheet" />
+    <link href="css/style-customized.css" media="all" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="text/javascript" src="js/vendor/masonry.pkgd.min.js"></script><!-- Masonry layout library  -->
+    <script type="module" src="js/vendor/inclusive-dates/inclusive-dates.js"></script>
+    <!-- Date and date range picker  -->
+</head>
+<style>
+    .col-md-5 {
+        width: 50%;
+
+        padding: 20px;
+        margin-right: 64px;
+
+    }
+
+    .em-c-table .em-c-table__body tr td:nth-child(2) {
+        display: flex;
+        gap: 1px;
+    }
+
+    .em-c-table .em-c-table__body tr td:nth-child(2) button {
+        border: none;
+        color: white;
+        background-color: #ccc;
+    }
+
+    .em-c-table .em-c-table__body tr td:nth-child(2) {
+        display: flex;
+        gap: 1px;
+    }
+
+    .em-c-table .em-c-table__body tr td:nth-child(2) {
+        display: flex;
+        gap: 1px;
+    }
+
+    .em-c-table .em-c-table__body tr td:nth-child(2):hover .btn-model {
+        display: block;
+    }
+    .user-profile{
+    position: relative;
+ }
+ .user-profile__dropdown{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border-radius: 5px;
+    top: 46px;
+    left: 10px;
+    border: 1px solid #ebebeb;
+    background: white;
+
+ }
+ .hidden{
+    display: none;
+ }
+
+    .hidden {
+        display: none;
+    }
+
+    .flex {
+        display: flex;
+    }
+    .new-des-img{
+        width: 80vw;
+    margin: 1rem 10vw;
+    }
+    .designs button{
+        margin: 1rem;
+        border: none;
+        outline: none;
+        text-decoration: underline;
+        color: blue;
+        background-color: none;
+    }
+    .mt-3 {margin-top: 1.5em;}
+
+.em-c-primary-nav__item .em-c-solid-nav__icon {
+    color: #fff;
+}
+#firstdata th, #thirddata th{
+    background-color:  rgb(231, 226, 226);
+    color: black;
+    font-family: "EMprint";
+}
+</style>
+
+<body>
+    <header class="em-c-header em-c-header--condensed em-c-header--blue " role="banner">
+        <div class="em-l-container em-c-header__inner">
+            <a class="skip-to-content" href="#main">Skip to main content</a>
+            <a class="skip-to-footer" href="#footer">Skip to footer</a>
+            <div class="em-c-header__body">
+                <div class="em-c-header__title-container ">
+                    <h2 class="em-c-header__title">
+                        <a href="#" rel="home" class="em-c-header__title-link">CEA</a>
+                    </h2>
+                </div>
+                <button class="em-c-btn em-c-btn--inverted em-c-btn--small    em-c-header__nav-btn em-js-nav-trigger"
+                    aria-haspopup="true" aria-controls="horizontalMenu">
+                    <div class="em-c-btn__inner">
+                        <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+                        <svg class="em-c-icon em-c-icon--small em-c-btn__icon em-js-btn-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xlink:href="images/16/em-icons.svg#hamburger"></use>
+                        </svg>
+                        <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+                        <svg class="em-c-icon em-c-icon--small em-c-btn__icon em-u-is-hidden em-js-btn-swap-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xlink:href="images/16/em-icons.svg#x-filled"></use>
+                        </svg>
+                        <span class="em-c-btn__text em-js-btn-label">Menu</span>
+                    </div>
+                </button>
+                <div class="em-c-header__nav-container em-js-nav-panel">
+                    <form role="search" class="em-c-search-form em-js-header-search  ">
+                        <div class="em-c-search__body">
+                            <input id="search" type="search" class="em-c-search__input" placeholder="Search" value="" />
+                            <button class="em-c-btn em-c-btn--primary     " aria-label="Search">
+                                <div class="em-c-btn__inner">
+                                    <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+                                    <svg class="em-c-icon em-c-icon--small em-c-btn__icon">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            xlink:href="images/16/em-icons.svg#search"></use>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                    <nav id="nav" class="em-c-primary-nav" aria-label="Main navigation">
+                        <ul class="em-c-primary-nav__list" role="menubar" id="horizontalMenu">
+                          <li class="em-c-primary-nav__item " role="menuitem">
+                            <a
+                              class="em-c-primary-nav__link  em-is-current "
+                              href="./Dashboard-Admin.html"
+                              aria-expanded="false"
+                              aria-current="false"
+                              aria-label="Home"
+                            >
+                              Dashboard
+                            </a>
+                          </li>
+                          <li class="em-c-primary-nav__item " role="menuitem">
+                            <a
+                              class="em-c-primary-nav__link  em-is-current "
+                              href="guidewithguidline-Admin.html"
+                              aria-expanded="false"
+                              aria-current="false"
+                              aria-label="Guide"
+                            >
+                              Guide
+                            </a>
+                          </li>
+                         
+                         
+                          <li class="em-c-primary-nav__item " role="menuitem">
+                            <a
+                              class="em-c-primary-nav__link  em-is-current "
+                              href="EstimatedSummary-Admin.html"
+                              aria-expanded="false"
+                              aria-current="false"
+                              aria-label="Summary"
+                            >
+                              Summary
+                            </a>
+                          </li>
+                          <li class="em-c-primary-nav__item " role="menuitem">
+                            <a
+                              class="em-c-primary-nav__link em-c-primary-nav__link--has-children em-js-nav-dropdown-trigger  "
+                              href="#"
+                              aria-expanded="false"
+                              aria-current="false"
+                              aria-label="Nav item"
+                            >
+                              Calc
+                              <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+                              <svg class="em-c-icon em-c-icon--small em-c-primary-nav__icon">
+                                <use
+                                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                                  xlink:href="images/16/em-icons.svg#chevron-down-filled"
+                                ></use>
+                              </svg>
+                            </a>
+                            <div
+                              class="em-c-primary-nav__sublist em-js-nav-dropdown  "
+                              role="menu"
+                              aria-hidden="true"
+                              aria-haspopup="true"
+                            >
+                              <ul>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./Inputcalc.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                    Input Calc
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./OutputCalc.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                    output Calc
+                                  </a>
+                                </li>
+                              
+                              
+                              </ul>
+                            </div>
+                          </li>
+                          <li class="em-c-primary-nav__item " role="menuitem">
+                            <a
+                              class="em-c-primary-nav__link em-c-primary-nav__link--has-children em-js-nav-dropdown-trigger  "
+                              href="#"
+                              aria-expanded="false"
+                              aria-current="false"
+                              aria-label="Nav item"
+                            >
+                              Master pages
+                              <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+                              <svg class="em-c-icon em-c-icon--small em-c-primary-nav__icon">
+                                <use
+                                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                                  xlink:href="images/16/em-icons.svg#chevron-down-filled"
+                                ></use>
+                              </svg>
+                            </a>
+                            <div
+                              class="em-c-primary-nav__sublist em-js-nav-dropdown  "
+                              role="menu"
+                              aria-hidden="true"
+                              aria-haspopup="true"
+                            >
+                              <ul>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./LookupApplicationModule-Index.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                    LookupApplication Module
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./LookupModuleType-Index.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                    LookupModule Type
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./LookupTonnageDistribution-Index.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                  LookupTonnage Distribution
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./LookupArticServiceEquipmentMaterialMultiplier-Index.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                    Artic Service Equipment Material Multiplier
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./LookupEstimatedHRorMT-Index.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                    LookupEstimatedHRorMT 
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./LookupIndirectandFabEngineeringCost-Index.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                    LookupIndirectandFabEngineerCost 
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./LookupMaterialCostPerMT-Index.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                    LookupMaterialCostPerMT 
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./LookupMaterialCostSourEquipmentandPipingMultiplier-Index.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                  LookupMaterialCostSourEquipmentandPipingMultiplier 
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./LookupModulePBSCode-Index.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                  LookupModulePBSCode 
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./LookupModuleTransport-Index.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                  LookupModuleTransport 
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./LookupModuleTransportMultiplier-Index.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                  LookupModuleTransportMultiplier 
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./LookupPipingHoursMultiplierforSourService-Index .html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                  LookupPipingHoursMultiplierforSourService 
+                                  </a>
+                                </li>
+                                <li class="em-c-primary-nav__subitem " role="menuitem">
+                                  <a
+                                    href="./createprojectinfo-admin.html"
+                                    class="em-c-primary-nav__sublink"
+                                    role="menuitem"
+                                    aria-label="Subnav item"
+                                  >
+                                    LookupProject Information
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                       
+                          
+            
+                          <li  class="em-c-primary-nav__item user-profile" role="menuitem">
+                            <a
+                              class="em-c-primary-nav__link   "
+                              href="#"
+                              aria-expanded="false"
+                              aria-current="false"
+                              aria-label="Notifications"
+                            >
+                            <svg class="em-c-icon em-c-icon--small em-c-solid-nav__icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/16/em-icons.svg#user-1"></use></svg> User Profile
+                              <!-- <span class="em-c-badge">Logout</span> -->
+                            </a>
+            
+                            <div class="user-profile__dropdown hidden">
+                                <ul>
+                                  <li>
+                                    <a href="./Dashboard.html">
+                                      <button for="username">
+                                          Admin
+                                      </label>
+                                    </a>
+                                    
+                                  </li>
+                                  <li>
+                                    <a href="./Dashboard.html">
+                                      <button for="normaluser">
+                                        Normal User
+                                      </button>
+                                    </a>
+                                  </li>
+                                </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="em-c-header-overlay"></div>
+    <div class="designs" style="margin-left: 122px;">
+        <button   name="design" toggle="new-design"> Design</button>
+        <button   name="design" toggle="exxon-standard">HTML</button>
+        <label style="color:red;text-align: center;">Under Development</label>
+    </div>
+    <div class="new-design">
+        <img src="./images/CEA/summary_1--admin.png" alt="" class="new-des-img">
+    </div>
+<div class="exxon-standard hidden">
+    <main role="main" id="main">
+        <div class="em-l-container">
+
+            <nav aria-label="Breadcrumb">
+                <ol class="em-c-breadcrumbs ">
+                    <li class="em-c-breadcrumbs__item ">
+                        <a href="#" class="em-c-breadcrumbs__link">Dashboard</a>
+                    </li>
+                    <li class="em-c-breadcrumbs__item ">
+                        <span class="em-c-breadcrumbs__link" aria-current="page">
+                            Project
+                        </span>
+                    </li>
+                </ol>
+            </nav>
+
+
+            <div class='em-dc-table-object em-c-table--striped em-dc-bottom_margin_zero em-dc-table_striped" '>
+                <div class="em-c-table-object__header">
+                    <div class="em-c-toolbar" role="toolbar" aria-label="Toolbar with controls">
+                        <form role="search" class="em-c-search-form em-js-header-search em-c-search-form--small">
+                            <h3>Estimate Summary</h3>
+                            <div class="em-c-search__body">
+                                <!-- <input id="search" type="search" class="em-c-search__input" placeholder="Search"
+                                    value="" />
+                                <button class="em-c-btn em-c-btn--primary" aria-label="Search"> -->
+                                <div class="em-c-btn__inner">
+                                    <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+                                    <!-- <svg class="em-c-icon em-c-icon--small em-c-btn__icon">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xlink:href="images/16/em-icons.svg#search"></use>
+                                        </svg> -->
+                                </div>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="em-c-toolbar__item em-is-aligned-right">
+                            <div class="em-c-btn-group">
+                                <!-- <button class="em-c-btn em-c-btn--primary em-c-btn--small"><span
+                                        class="em-c-btn__text">Advanced Search</span></button> -->
+                                <button class="em-c-btn em-c-btn--secondary em-c-btn--small"><span
+                                        class="em-c-btn__text">Back to Project</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="em-c-tabs em-js-tabs  ">
+                            <ul class="em-c-tabs__list" role="tablist">
+                                <li class="em-c-tabs__item" role="presentation">
+                                    <a href="#tab-panel-1" class="em-c-tabs__link em-js-tab em-is-active" id="tab-1"
+                                        role="tab" aria-selected="true" aria-controls="tab-panel-1"
+                                        style="text-decoration: none;">
+                                        General Exclusion
+                                    </a>
+                                </li>
+                                <li class="em-c-tabs__item" role="presentation">
+                                    <a href="#tab-panel-2" class="em-c-tabs__link em-js-tab " id="tab-2" role="tab"
+                                        aria-selected="false" aria-controls="tab-panel-2"
+                                        style="text-decoration: none;">
+                                        Condensed Summary
+                                    </a>
+                                </li>
+                                <li class="em-c-tabs__item" role="presentation">
+                                    <a href="#tab-panel-3" class="em-c-tabs__link em-js-tab " id="tab-3" role="tab"
+                                        aria-selected="false" aria-controls="tab-panel-3"
+                                        style="text-decoration: none;">
+                                        Detailed Summary
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="em-c-tabs__body ">
+
+                                <div class="em-c-tabs__panel em-js-tabs-panel em-is-active " id="tab-panel-1"
+                                    role="tabpanel" aria-labelledby="tab-1" style="padding: 0px;">
+                                    <div id="general-exclusion" class="tabcontent"
+                                        style="display: block; padding: 24px;">
+                                        <h3 style="margin-top: 25px;">General Exclusion</h3>
+                                        <!-- <form class="form-horizontal" style="margin-top: 25px;"> -->
+                                        <div class="form-row" style="margin-top: 10px;">
+                                            <div class="col-md-6">
+                                                <p class="first-section "
+                                                    style="color: rgb(128, 122, 122); font-size: 14px;">
+                                                    Large, engineered module transportation support structures/beams
+                                                    (>1,000 MT)<br>
+                                                    Non-routine material transport costs to Fab Yard<br>
+                                                    Module ocean/overland transport costs<br>
+                                                    Detailed (EPC Contractor) Engineering<br>
+                                                    Commissioning
+                                                </p>
+                                                <P class="second-section"
+                                                    style="color: rgb(128, 122, 122); font-size: 14px;">
+                                                    Onshore/Offshore Installation, Integration and Hookup<br>
+                                                    Capital Spares, Commissioning Spares, 2-year Operating Spares<br>
+                                                    Owner's Project Management and Insurance<br>
+                                                    Certification<br>
+                                                    Contingency<br>
+                                                </P>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h3 style="margin-top: -42px;">Notes</h3>
+                                                <img src="./images/A.PNG"
+                                                    style="height: 30px; width: 32px;margin-top: 10px;">
+                                                <p class="first-section " style="color: rgb(128, 122, 122); font-size: 14px;margin-top: -25px;
+                                                margin-left: 40px;
+                                                line-height: 18px;">
+                                                    Bulks quantities, material costs, total costs and metrics are
+                                                    inclusive of all bulks
+                                                    accounts.
+                                                </p>
+                                                <img src="images/B.PNG"
+                                                    style="height: 30px; width: 32px;margin-top: 10px;">
+                                                <P class="second-section" style="color: rgb(128, 122, 122); font-size: 14px; margin-top: -31px;
+                                               margin-left: 40px;
+                                               line-height: 18px;">
+                                                    Cost includes all direct labor, fabrication engineering and yard
+                                                    indirects. Metric excludes
+                                                    all materials and any yard upgrade costs.
+
+                                                </P>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="em-c-tabs__panel em-js-tabs-panel  " id="tab-panel-2" role="tabpanel"
+                                    aria-labelledby="tab-2">
+                                    <div class="em-c-table-object ">
+                                        <div class="em-c-table-object__header"></div>
+                                        <div class="em-c-table-object__body">
+                                            <h4>Condensed Summary</h4>
+                                            <div class="em-c-table-object__body-inner">
+                                                <table class="em-c-table " role="table">
+                                                    <caption
+                                                        class="em-u-is-vishidden em-u-text-align-left em-u-margin-bottom">
+                                                        Table caption
+                                                    </caption>
+                                                    <thead class="em-u-font-style-bold">
+                                                        <tr class="em-c-table__header-row" id="firstdata">
+                                                            <th scope="col" class="em-c-table__header-cell"></th>
+
+                                                            <th scope="col" class="em-c-table__header-cell ">Qty Unity
+                                                            </th>
+                                                            <th scope="col" class="em-c-table__header-cell ">Hours</th>
+                                                            <th scope="col" class="em-c-table__header-cell ">Labour
+                                                                (USD)</th>
+                                                            <th scope="col" class="em-c-table__header-cell ">Materials
+                                                                (USD)</th>
+                                                            <th scope="col" class="em-c-table__header-cell ">Total(USD)
+                                                            </th>
+                                                            <th scope="col" class="em-c-table__header-cell ">Matric Unit
+                                                            </th>
+                                                            <th scope="col" class="em-c-table__header-cell ">Matric Unit
+                                                            </th>
+                                                        </tr>
+                                                        <tr class="em-u-font-style-bold">
+                                                            <th scope="col" class="em-c-table__header-cell ">Total -
+                                                                Module Fabrication</th>
+                                                            <th scope="col" class="em-c-table__header-cell ">40,637 MT
+                                                            </th>
+                                                            <th scope="col" class="em-c-table__header-cell ">#Name?</th>
+                                                            <th scope="col" class="em-c-table__header-cell "></th>
+                                                            <th scope="col" class="em-c-table__header-cell "></th>
+                                                            <th scope="col" class="em-c-table__header-cell ">#Name?</th>
+                                                            <th scope="col" class="em-c-table__header-cell ">Error
+                                                                UDS/ton</th>
+                                                            <th scope="col" class="em-c-table__header-cell ">Error
+                                                                UDS/hrs</th>
+
+                                                        </tr>
+
+                                                        <tr class="em-u-font-style-bold" id="thirddata">
+                                                            <th scope="col" class="em-c-table__header-cell ">SUBTOTAL
+                                                                DIRECT COST</th>
+                                                            <th scope="col" class="em-c-table__header-cell ">40,637 MT
+                                                            </th>
+                                                            <th scope="col" class="em-c-table__header-cell ">#Name?</th>
+                                                            <th scope="col" class="em-c-table__header-cell ">#Name?</th>
+                                                            <th scope="col" class="em-c-table__header-cell ">#Name?</th>
+                                                            <th scope="col" class="em-c-table__header-cell ">
+                                                                3,997,390,375</th>
+                                                            <th scope="col" class="em-c-table__header-cell ">98,368
+                                                                USD/ton</th>
+                                                            <th scope="col" class="em-c-table__header-cell ">Error
+                                                                hrs/ton</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="em-c-table__body">
+                                                        <tr class="em-c-table__row   ">
+
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Equipment</td>
+                                                            <!-- <td class="em-c-table__cell em-js-cell em-js-cell-editable">9,199 MT</td> -->
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+
+
+
+                                                                <!-- <button class="em-c-btn      em-js-modal-trigger btn-model hidden"> -->
+                                                                <span
+                                                                    class="em-c-btn__text em-c-btn      em-js-modal-trigger btn-model hidden"
+                                                                    style="height: 0px;border: none; padding: 0px;">
+                                                                    <svg class="em-c-icon em-c-icon--small ">
+                                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                            xlink:href="images/24/em-icons.svg#circle-exclamation-mark-filled">
+                                                                        </use>
+                                                                    </svg>
+                                                                </span>
+                                                                <!-- </button> -->
+                                                                <div class="em-c-modal " role="alertdialog"
+                                                                    aria-modal="true" aria-labelledby="modalTitle"
+                                                                    aria-describedby="modalDescription">
+                                                                    <section class="em-c-modal__window em-is-closed "
+                                                                        style="width: 52em;">
+                                                                        <div class="em-c-modal__header ">
+                                                                            <div class="">
+                                                                                <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+
+                                                                                <div class="em-c-modal__kicker">Version
+                                                                                    One</div>
+                                                                                <div class="em-c-modal__title"
+                                                                                    id="modalTitle">
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <button class="em-c-btn em-c-btn--bare     em-c-modal__close-btn" title="Close modal" style=" height: 6%; width: 0px; margin-top: -14px;color: white;">
+                                                                                <div class="em-c-btn__inner">
+                                                                                    <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+                                                                                    <svg
+                                                                                        class="em-c-icon em-c-icon--small em-c-btn__icon">
+                                                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                            xlink:href="images/16/em-icons.svg#x-filled">
+                                                                                        </use>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="em-c-modal__body "
+                                                                            id="modalDescription">
+                                                                            <!-- <img src="images/aa.PNG"> -->
+                                                                            <!-- <div class="em-c-btn-bar">
+        <ul class="em-c-btn-bar__list">
+          <li class="em-c-btn-bar__item">
+            <button class="em-c-btn  em-c-btn--medium  " style="    border: 1px solid #eee6e6;
+            color: black;
+            background-color: white;">
+              <span class="em-c-btn__text">Formula</span>
+            </button>
+          </li>
+          <li class="em-c-btn-bar__item">
+            <button class="em-c-btn  em-c-btn--medium" style="    border: 1px solid #eee6e6;
+            color: black;
+            background-color: white;">
+              <span class="em-c-btn__text">Description</span>
+            </button>
+          </li>
+        
+        </ul>
+      </div> -->
+                                                                            <div class="em-c-tabs em-js-tabs  ">
+                                                                                <ul class="em-c-tabs__list"
+                                                                                    role="tablist">
+                                                                                    <li class="em-c-tabs__item"
+                                                                                        role="presentation">
+                                                                                        <a href="#tab-panel-4"
+                                                                                            class="em-c-tabs__link em-js-tab em-is-active"
+                                                                                            id="tab-4" role="tab"
+                                                                                            aria-selected="true"
+                                                                                            aria-controls="tab-panel-1"
+                                                                                            style="text-decoration: none;">
+                                                                                            Formula
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li class="em-c-tabs__item"
+                                                                                        role="presentation">
+                                                                                        <a href="#tab-panel-5"
+                                                                                            class="em-c-tabs__link em-js-tab "
+                                                                                            id="tab-5" role="tab"
+                                                                                            aria-selected="false"
+                                                                                            aria-controls="tab-panel-2"
+                                                                                            style="text-decoration: none;">
+                                                                                            Desription
+                                                                                        </a>
+                                                                                    </li>
+
+                                                                                </ul>
+                                                                                <div class="em-c-tabs__body "
+                                                                                    style="display: flex;">
+                                                                                    <div class="em-c-tabs__panel em-js-tabs-panel em-is-active "
+                                                                                        id="tab-panel-4" role="tabpanel"
+                                                                                        aria-labelledby="tab-4"
+                                                                                        style="padding: 0.5rem;">
+
+
+                                                                                        <div class="flex">
+
+                                                                                            <div style="width: 100px;">
+                                                                                                <label style="    border-bottom: 1px solid #e2dddd;
+                                                                                    width: 100%;"> Name</label>
+                                                                                                <label style="    border-bottom: 1px solid #e2dddd;
+                                                                                     width: 100%;"> Name</label>
+                                                                                                <label style="    border-bottom: 1px solid #e2dddd;
+                                                                                     width: 100%;"> Name</label>
+                                                                                                <label style="    border-bottom: 1px solid #e2dddd;
+                                                                                      width: 100%;"> Name</label>
+                                                                                                <label style="    border-bottom: 1px solid #e2dddd;
+                                                                                        width: 100%;"> Name</label>
+                                                                                            </div>
+
+                                                                                            <div
+                                                                                                style="background-color: black;">
+                                                                                                <article
+                                                                                                    class="em-c-card     "
+                                                                                                    aria-labelledby="cardTitle-:r0:"
+                                                                                                    aria-describedby="cardDescription-:r0:"
+                                                                                                    tabindex="0"
+                                                                                                    style="background-color: #7c7171;
+                                                                                                        color: white;height: 220px;    max-width: 30rem;">
+                                                                                                    <div
+                                                                                                        class="em-c-card__body ">
+                                                                                                        <div class="em-c-media-block em-c-media-block--small "
+                                                                                                            aria-labelledby="cardTitle-:r0:"
+                                                                                                            aria-describedby="cardDescription-:r0:"
+                                                                                                            role="figure"
+                                                                                                            tabindex="0">
+                                                                                                            <div
+                                                                                                                class="em-c-media-block__body">
+                                                                                                                <div class="em-c-media-block__headline em-u-margin-bottom"
+                                                                                                                    id="cardTitle-:r0:">
+
+                                                                                                                </div>
+                                                                                                                <p class="em-c-media-block__desc"
+                                                                                                                    id="cardDescription-:r0:">
+                                                                                                                    "IF(@EstimatedTonnage="",0,I@EstimatedTonnage))*+If"<br>
+                                                                                                                    (T@LookupModuleWeight(ModuleTypeid,Equipment)=Not
+                                                                                                                    Used,0,<br>
+                                                                                                                    T@LookupModuleWeight(ModuleTypeid,Equipment))"
+
+                                                                                                                </p>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </article>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="em-c-tabs__panel em-js-tabs-panel  "
+                                                                                        id="tab-panel-5" role="tabpanel"
+                                                                                        aria-labelledby="tab-5">
+                                                                                        <h4 style="color: #7c7171;">Instruction</h3>
+                                                                                        <p style="color: #7c7171;margin-top: 10px;">
+                                                                                            <b>1.</b> Before using the method, reference CEM-2-040-01 for methodology</p>
+                                                                                        <p style="color: #7c7171;margin-top: 10px;">
+                                                                                            <b>2.</b> Refer to Input and Output definition & type for tool usage guidance and user<br>
+                                                                                            warnings and additional guidance
+                                                                                        </p> 
+                                                                                        <p style="color: #7c7171;margin-top: 10px;">
+                                                                                            <b>3. </b>Complete all necessary inputs
+                                                                                        </p>         
+                                                                                        <p style="color: #7c7171;margin-top: 10px;">
+                                                                                            <b>4.</b> Input cost basis information at chosen location
+                                                                                        </p> 
+                                                                                        <p style="color: #7c7171;margin-top: 10px;">
+                                                                                            <b>5.</b> Utilise "Weight Calculator" tab to obtain tonnage of topside modules
+                                                                                        </p>                             
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </section>
+                                                                    <div class="em-c-modal__overlay em-is-closed"></div>
+
+                                                                    9,199 MT
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                383,380</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                227,761,212</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                1,793,775,799</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                880,703,306</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                95,744 USD/ton</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                42 hrs/ton</td>
+                                                        </tr>
+                                                        <tr class="em-c-table__row   ">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Steel</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+
+
+                                                                <!-- <button class="em-c-btn      em-js-modal-trigger btn-model hidden"> -->
+                                                                <span
+                                                                    class="em-c-btn__text em-c-btn      em-js-modal-trigger btn-model hidden"
+                                                                    style="height: 0px;border: none; padding: 0px;">
+                                                                    <svg class="em-c-icon em-c-icon--small ">
+                                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                            xlink:href="images/24/em-icons.svg#circle-exclamation-mark-filled">
+                                                                        </use>
+                                                                    </svg>
+                                                                </span>
+                                                                <!-- </button> -->
+                                                                <div class="em-c-modal " role="alertdialog"
+                                                                    aria-modal="true" aria-labelledby="modalTitle"
+                                                                    aria-describedby="modalDescription">
+                                                                    <section class="em-c-modal__window em-is-closed ">
+                                                                        <div class="em-c-modal__header ">
+                                                                            <div class="">
+                                                                                <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+
+                                                                                <div class="em-c-modal__kicker" style="margin-top: 51px;"><p>Version
+                                                                                    One</p></div>
+                                                                                <div class="em-c-modal__title"
+                                                                                    id="modalTitle">
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <button
+                                                                                class="em-c-btn em-c-btn--bare     em-c-modal__close-btn"
+                                                                                title="Close modal">
+                                                                                <div class="em-c-btn__inner">
+                                                                                    <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+                                                                                    <svg
+                                                                                        class="em-c-icon em-c-icon--small em-c-btn__icon">
+                                                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                            xlink:href="images/16/em-icons.svg#x-filled">
+                                                                                        </use>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="em-c-modal__body "
+                                                                            id="modalDescription">
+                                                                            <img src="images/bb.PNG">
+                                                                        </div>
+
+                                                                    </section>
+                                                                    <div class="em-c-modal__overlay em-is-closed"></div>
+                                                                </div>
+                                                                21,451 MT
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                1,541,336</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                974,338,052</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                430,749,232</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                2,768,113,850</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                129,043 USD/ton</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                72 hrs/ton</td>
+
+                                                        </tr>
+                                                        <tr class="em-c-table__row">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Piping</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                2,132 MT</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                #Name?</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                #Name?</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                #Name?</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                33,614,851</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                14,540 USD/ton</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Error hrs/ton</td>
+                                                        </tr>
+
+                                                        <tr class="em-c-table__row">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Bulks - E&I</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                7,676 MTA</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                2,155,773</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                1,062,763,059</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                314,958,368</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                41,034 USD/ton</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Error hrs/ton</td>
+                                                        </tr>
+                                                        <tr class="em-c-table__row">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Bulks - Architectural</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                #Name?</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                #Name?</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr class="em-c-table__row">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Bulks - HVAC</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                #Name?</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                #Name?</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr class="em-c-table__row">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Bulks - Insulation and F/P</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                996,937</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                330,185,090</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr class="em-c-table__row">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Bulks - Painting</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                1,216,308</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                409,421,343</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr class="em-c-table__row">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Bulks - Sea Fastening</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                159,645</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                72,616,214</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr class="em-u-font-style-bold">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                SUBTOTAL INDIRECT COSTS</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                #Name?</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Error USD/ton</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Error of Total Directs</td>
+                                                        </tr>
+
+                                                        <tr class="em-c-table__row">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Fabrication Yard Indirects</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                #Name?</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Error USD/ton</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Error of Total Direct</td>
+                                                        </tr>
+
+                                                        <tr class="em-c-table__row">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Fabrication Engineering</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                #Name?</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Error USD/ton</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Error of Total Direct</td>
+                                                        </tr>
+                                                        <tr class="em-c-table__row">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                Fab Yard Upgrade</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                0</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                0 USD/ton</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                0.0% of Total Directs</td>
+                                                        </tr>
+
+                                                        <tr class="em-u-font-style-bold">
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                SUBTOTAL User Defined Costs</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                            </td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                900,000</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                10,000 hrs</td>
+                                                            <td class="em-c-table__cell em-js-cell em-js-cell-editable">
+                                                                0.02% of Total Directs</td>
+                                                        </tr>
+
+
+
+                                                    </tbody>
+
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="em-c-tabs__panel em-js-tabs-panel  " id="tab-panel-3" role="tabpanel"
+                                    aria-labelledby="tab-3">
+                                    <h4 style="margin-left: 7px;">Detailed Summary</h4>
+                                    <section class="em-c-section em-c-section--expandable em-is-closed "
+                                        aria-labelledby="sectionTitle">
+                                        <button class="em-c-section__header em-js-section-trigger " tabindex="0"
+                                            aria-controls="sectionContent" aria-expanded="false"
+                                            style="display: block;">
+                                            <!-- IMPORTANT! Update the xlink:href below to use your own path to Standard's images directory. -->
+
+                                            <div class="em-c-table-object ">
+                                                <div class="em-c-table-object__header"></div>
+                                                <div class="em-c-table-object__body">
+                                                    <div class="em-c-table-object__body-inner">
+
+                                                        <svg class="em-c-icon em-c-icon--medium em-c-section__icon"
+                                                            aria-hidden="true" style="
+                                                                    float: left;
+                                                                    margin-top: 48px;
+                                                                    margin-bottom: -79px;
+                                                                    color: white;
+                                                                    margin-left: -5px; ">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                xlink:href="images/24/em-icons.svg#chevron-down-filled">
+                                                            </use>
+                                                        </svg>
+                                                        <table class="em-c-table " role="table">
+                                                            <caption
+                                                                class="em-u-is-vishidden em-u-text-align-left em-u-margin-bottom">
+                                                                Table caption
+                                                            </caption>
+                                                            <thead class="em-u-font-style-bold">
+                                                                <tr class="em-c-table__header-row" id="firstdata"
+                                                                    style="text-indent: 16px;">
+                                                                    <th scope="col" class="em-c-table__header-cell">
+                                                                    </th>
+
+                                                                    <th scope="col" class="em-c-table__header-cell ">Qty
+                                                                        Unity</th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                        Hours</th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                        Labour (USD)</th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                        Materials (USD)</th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                        Total(USD)</th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                        Matric Unit</th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                        Matric Unit</th>
+                                                                </tr>
+                                                                <tr class="em-u-font-style-bold"
+                                                                    style="text-indent: 17px;">
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                        Total - Module 1</th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                        36,637 MT</th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                        #Name?</th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                    </th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                    </th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                        #Name?</th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                        Error UDS/ton</th>
+                                                                    <th scope="col" class="em-c-table__header-cell ">
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="em-c-section__body em-js-section-target" id="sectionContent"
+                                                    aria-hidden="true">
+
+                                                    <table class="em-c-table " role="table">
+                                                        <caption
+                                                            class="em-u-is-vishidden em-u-text-align-left em-u-margin-bottom">
+                                                            Table caption
+                                                        </caption>
+                                                        <tbody class="em-u-font-style-bold">
+
+                                                            <!-- <tr class="em-c-table__header-row" id="firstdata" > -->
+                                                            <tr class="em-u-font-style-bold" id="thirddata">
+
+
+                                                                <th scope="col" class="em-c-table__header-cell ">
+                                                                    SUBTOTAL DIRECT COST</th>
+                                                                <th scope="col" class="em-c-table__header-cell ">36,637
+                                                                    MT</th>
+                                                                <th scope="col" class="em-c-table__header-cell ">#Name?
+                                                                </th>
+                                                                <th scope="col" class="em-c-table__header-cell ">#Name?
+                                                                </th>
+                                                                <th scope="col" class="em-c-table__header-cell ">#Name?
+                                                                </th>
+                                                                <th scope="col" class="em-c-table__header-cell ">
+                                                                    2,232901,445</th>
+                                                                <th scope="col" class="em-c-table__header-cell ">61,220
+                                                                    USD/ton</th>
+                                                                <th scope="col" class="em-c-table__header-cell ">Error
+                                                                    hrs/ton</th>
+
+                                                            </tr>
+                                                            <tr class="em-u-font-style-bold" id="thirddata">
+                                                                <th scope="col" class="em-c-table__header-cell ">
+                                                                    SUBTOTAL DIRECT COST</th>
+                                                                <th scope="col" class="em-c-table__header-cell "></th>
+                                                                <th scope="col" class="em-c-table__header-cell "></th>
+                                                                <th scope="col" class="em-c-table__header-cell "></th>
+                                                                <th scope="col" class="em-c-table__header-cell "></th>
+                                                                <th scope="col" class="em-c-table__header-cell ">#Name?
+                                                                </th>
+                                                                <th scope="col" class="em-c-table__header-cell ">Error
+                                                                    hrs/ton</th>
+                                                                <th scope="col" class="em-c-table__header-cell ">Error
+                                                                    of Total Directs</th>
+
+                                                            </tr>
+                                                        </tbody>
+
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+
+                                        </button>
+
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer class="em-c-footer--dark em-c-footer--condensed   " role="contentinfo" id="footer">
+        <div class="em-l-container">
+            <nav class="em-c-footer__inner" aria-label="Footer navigation">
+                <ul class="em-c-multicolumn-nav  ">
+                    <li class="em-c-multicolumn-nav__item " style="    width: 200%;
+                    font-size: 17px;
+                    font-family: 'EMprintSemibold';">
+                      <a href="#" class="em-c-multicolumn-nav__link">Copyright for exxonmobil cost_estimation application</a>
+                    </li>
+                   
+                  </ul>
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                    y="0px" width="110px" height="30px" viewBox="0 0 110 30" enable-background="new 0 0 110 30"
+                    xml:space="preserve" class="em-c-logo">
+                    <path fill="currentColor"
+                        d="M44.7,9.5h2.6v0.9c0.3-0.2,1.2-1.1,2.9-1.1c2,0,3.6,1.5,3.6,3.8v6H51v-5.2c0-1.3-0.6-2-1.8-2 c-1.1,0-1.8,0.7-1.8,2V19h-2.8V9.5z M73.9,14.2c0-1.3,1-2.4,2.4-2.4c1.4,0,2.4,1.1,2.4,2.4c0,1.3-1,2.4-2.4,2.4 C74.9,16.6,73.9,15.6,73.9,14.2z M71.2,14.2c0,2.7,2.2,5,5.1,5c2.9,0,5.1-2.2,5.1-5c0-2.7-2.2-5-5.1-5C73.4,9.3,71.2,11.5,71.2,14.2 z M35.7,14.2c0-1.3,1-2.4,2.4-2.4c1.4,0,2.4,1.1,2.4,2.4c0,1.3-1,2.4-2.4,2.4C36.7,16.6,35.7,15.6,35.7,14.2z M32.9,14.2 c0,2.7,2.2,5,5.1,5c2.9,0,5.1-2.2,5.1-5c0-2.7-2.2-5-5.1-5C35.1,9.3,32.9,11.5,32.9,14.2z M94.9,9.5h2.8v8.9V19h-2.8V9.5z M94.9,6 h2.8v2.4h-2.8V6z M99.9,6h2.8v12.4V19h-2.8V6z M90.4,14.2c0,1.3-1,2.4-2.4,2.4c-1.4,0-2.4-1-2.4-2.4c0-1.4,1-2.4,2.4-2.4 C89.4,11.9,90.4,12.9,90.4,14.2z M85.7,19l0-0.7c0.2,0.1,1.1,1,2.9,1c2.4,0,4.6-2.2,4.6-5c0-2.8-2.1-5-4.6-5c-1.9,0-2.8,0.9-2.9,1V6 H83v13H85.7z M19.8,19l2.9-3.8l1.8,1.9l-4.2,5.2h3.3l2.7-3.5l5,5.1h4l-7.3-7.3l5.7-7.2h-3.3l-4.2,5.4l-1.8-1.8l4.7-5.9h-3.3 l-3.2,4.1l-1.7-1.8H17l3.9,4L16.5,19H19.8z M7.3,6h8.6v2.4h-5.7v2.7h5.4v2.4h-5.4v3.1h5.7V19H7.3V6z M56,6h4.6l2.2,9.5h0.1L65.1,6 h4.5v13h-2.7V9.2h-0.1L64.3,19h-3.1l-2.4-9.8h-0.1V19H56V6z">
+                    </path>
+                </svg>
+            </nav>
+        </div>
+    </footer>
+
+</div>
+
+    <!-- Add Standard JavaScript to bottom of body -->
+    <!-- IMPORTANT!
+            In the tag below, update path to standard-2.0.0-beta.4
+            to match the location of your Standard files
+        -->
+    <script type="text/javascript" src="js/em-standard-2.0.0-beta.4.min.js"></script>
+    <script type="text/javascript">
+document.querySelectorAll('[name=design]').forEach(ele=>{
+    ele.addEventListener("click",function(e){
+        const exxonStandard  = document.querySelector(".exxon-standard")
+        const newDesign  = document.querySelector(".new-design")
+            exxonStandard.classList.add("hidden")
+            newDesign.classList.add("hidden")
+          const target =  e.target.getAttribute("toggle")
+       document.querySelector(`.${target}`).classList.remove("hidden")
+    })
+})
+    </script>
+    <script>
+        document.querySelector('.user-profile').addEventListener('click',()=>{
+    document.querySelector(".user-profile__dropdown").classList.toggle('hidden')
+    })
+    </script>
+</body>
+
+</html>
